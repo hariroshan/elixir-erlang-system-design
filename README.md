@@ -24,6 +24,7 @@ Organising the system design and scaleability knowledge while building Elixir / 
 
 2. Use the module to build Elixir/Erlang Processes (GenServer, GenStage, Flow etc.). If needed, use ETS table for read / write faster access to minimize database requests. Clean the ETS table when the data is not used.
 
+3. Connect each process to context level supervisor. Connect all context supervisors to application supervisor.
 
 ### Factors that degrade system performance
 
