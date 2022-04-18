@@ -37,7 +37,19 @@ Organising the system design and scaleability knowledge while building Elixir / 
 
 ### Using Mnesia for Database:
 
-Erlang has its own database called [Mnesia](https://www.erlang.org/doc/apps/mnesia/mnesia_chap1) ([Docs](https://www.erlang.org/doc/man/mnesia.html)). Use it after reading the docs and knowing the advantages and disadvantages of it. Mnesia has a size limitation that table data can't be more than 2GB. If it exceeds, you need to fragment the table. 
+Erlang has its own database called [Mnesia](https://www.erlang.org/doc/apps/mnesia/mnesia_chap1) ([Docs](https://www.erlang.org/doc/man/mnesia.html)). 
+
+#### Features of Mnesia
+- A relational/object hybrid data model that is suitable for telecommunications applications.
+- A DBMS query language, Query List Comprehension (QLC) as an add-on library.
+- Persistence. Tables can be coherently kept on disc and in the main memory.
+- Replication. Tables can be replicated at several nodes.
+- Atomic transactions. A series of table manipulation operations can be grouped into a single atomic transaction.
+- Location transparency. Programs can be written without knowledge of the actual data location.
+- Extremely fast real-time data searches.
+- Schema manipulation routines. The DBMS can be reconfigured at runtime without stopping the system.
+
+Use it after reading the docs and knowing the advantages and disadvantages of it. Mnesia has a size limitation that table data can't be more than 2GB. If it exceeds, you need to fragment the table. 
 
 > A concept of table fragmentation has been introduced to cope with large tables. The idea is to split a table into several manageable fragments. Each fragment is implemented as a first class Mnesia table and can be replicated, have indexes, and so on, as any other table. But the tables cannot have local_content or have the snmp connection activated.
 
