@@ -65,3 +65,5 @@ This is the approach the elixir community encourages as it has better consistenc
 > Suitable for blogs, services with less availability and hosting webpages.
 
 
+![](/Images/single-server.png)
+
