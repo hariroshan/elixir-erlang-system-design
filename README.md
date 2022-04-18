@@ -26,6 +26,8 @@ Organising the system design and scaleability knowledge while building Elixir / 
 
 3. Connect each process to a supervisor. Then to context level supervisor. Then connect all context supervisors to application supervisor.
 
+![](/Images/supervisor.png)
+
 ### Factors that degrade system performance
 
 1. Disk I/O. Performing frequent disk read or write operations can be slow. It can be avoided / optimized by using ETS table or by using disk with high Disk I/O operation.
