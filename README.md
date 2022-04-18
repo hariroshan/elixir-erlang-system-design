@@ -26,7 +26,7 @@ Organising the system design and scaleability knowledge while building Elixir / 
 
 3. Connect each process to a supervisor. Then to context level supervisor. Then connect all context supervisors to application supervisor.
 
-![](/Images/supervisor.png)
+![](/Images/new-supervisor.png)
 
 ### Factors that degrade system performance
 
