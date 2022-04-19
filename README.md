@@ -13,7 +13,6 @@ Organising the system design and scaleability knowledge while building Elixir / 
     ```elixir
 
     defmodule Example.Server do
-
       use GenServer, shutdown: 900_000 # 15 mins
 
     ```
@@ -58,6 +57,9 @@ It is suitable if you need to store Elixir / Erlang terms in the database and do
 ### Using SQL - based databases:
 
 This is the approach the elixir community encourages as it has better consistency, support and reliability than Mnesia. 
+
+### Release
+(to be updated)
 
 
 ## 1. Single Server
