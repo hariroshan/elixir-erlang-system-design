@@ -67,3 +67,7 @@ This is the approach the elixir community encourages as it has better consistenc
 
 ![](/Images/single-server.png)
 
+This architechure can take you long way if you can upgrade to multiple cores and high memory as Elixir/Erlang programs runs faster in multiple core systems.
+
+Staying with the single server can be expensive because the cost of a multiple core server will be much higher than having multiple average servers.
+But distributed architechure has its own pros and cons.
