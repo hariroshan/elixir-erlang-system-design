@@ -8,7 +8,7 @@ Organising the system design and scaleability knowledge while building Elixir / 
 
 - ETS table needs to be managed manually by the process (i.e. creation and deletion of objects) Since it is not garbase collected as well.
 
-- Even though you can create as many processes as you want, shutting down idle and unused processes saves memory and cpu. Use shutdown option in GenServer to auto shutdown when idle. For example,
+- Even though you can create as many processes as you want, shutting down idle and unused processes saves memory and cpu. Use shutdown option in GenServer to auto shutdown when idle.
 
     ```elixir
 
@@ -16,7 +16,19 @@ Organising the system design and scaleability knowledge while building Elixir / 
       use GenServer, shutdown: 900_000 # 15 mins
 
     ```
+- To achieve high performance, Pass only the data the process needs rather than sending the whole struct as message.
+    ```elixir
 
+    # Example
+    data = %Data{value: 12, ...otherFields} # large struct with multiple fields
+
+    # Instead of this 
+    GenServer.cast(__MODULE__, {:process_value, data})
+    
+    # Use this
+    GenServer.cast(__MODULE__, {:process_value, data.value})
+
+    ```
 ## Best Practices
 
 1. Start by writing a module that solves business needs and logics. And a module to handle the storage needs such as writing data in a database / disk.
@@ -59,7 +71,7 @@ It is suitable if you need to store Elixir / Erlang terms in the database and do
 This is the approach the elixir community encourages as it has better consistency, support and reliability than Mnesia. 
 
 ### Release
-(to be updated)
+(to be updated soon)
 
 
 ## 1. Single Server
@@ -71,5 +83,5 @@ This is the approach the elixir community encourages as it has better consistenc
 
 This architechure can take you long way if you can upgrade to multi-cores and high memory as Elixir/Erlang programs runs faster in multi-core systems.
 
-Staying with the single server can be expensive because the cost of a multi-core server will be much higher than having multiple average servers.
+Staying with single server can be expensive because the cost of a multi-core server will be much higher than having multiple average servers.
 But distributed architechure has its own pros and cons.
