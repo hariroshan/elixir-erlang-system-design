@@ -16,7 +16,7 @@ Organising the system design and scaleability knowledge while building Elixir / 
       use GenServer, shutdown: 900_000 # 15 mins
 
     ```
-- To achieve high performance, Pass only the data the process needs rather than sending the whole struct as message.
+- To achieve high performance, Send only the data the process needs rather than sending the whole struct as message.
     ```elixir
 
     # Example
