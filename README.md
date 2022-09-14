@@ -8,14 +8,7 @@ Organising the system design and scaleability knowledge while building Elixir / 
 
 - ETS table needs to be managed manually by the process (i.e. creation and deletion of objects) Since it is not garbase collected as well.
 
-- Even though you can create as many processes as you want, shutting down idle and unused processes saves memory and cpu. Use shutdown option in GenServer to auto shutdown when idle.
 
-    ```elixir
-
-    defmodule Example.Server do
-      use GenServer, shutdown: 900_000 # 15 mins
-
-    ```
 - To achieve high performance, Send only the data the process needs rather than sending the whole struct as message.
     ```elixir
 
